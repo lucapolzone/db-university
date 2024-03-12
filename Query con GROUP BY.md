@@ -4,3 +4,11 @@
 SELECT COUNT(*), `enrolment_date` FROM `students`
 GROUP BY `enrolment_date`;
 ```
+<br>
+
+2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+```
+SELECT COUNT(*), `office_address` FROM `teachers`
+GROUP BY `office_address`;
+```
