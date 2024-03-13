@@ -27,3 +27,31 @@ INNER JOIN `departments`
 ON `departments`.`id` = `degrees`.`department_id` 
 WHERE `degrees`.`level` = 'magistrale' AND `departments`.`name`  = 'Dipartimento di Neuroscienze';
 ```
+
+<br>
+
+[comment]: <> (Molti a molti, tabella pivot)
+
+3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+
+```
+SELECT 
+  `courses`.`name`  
+FROM `courses`
+INNER JOIN `teachers`
+ON `teachers`.`id`
+WHERE `teachers`.`id` = 44;
+```
+==== <br>
+Soluzione migliore:
+
+```
+SELECT
+  `teachers`.`name` AS `teachers_name`,
+  `teachers`.`surname` AS `teachers_surname`,
+  `courses`.`name`
+FROM `teachers`
+INNER JOIN `courses`
+ON `courses`.`id`
+WHERE `teachers`.`id` = 44;
+```
